@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: Table, Lamp, & Rubik's Cube.ma
-//Last modified: Fri, Sep 09, 2022 06:46:58 PM
+//Last modified: Thu, Sep 15, 2022 07:07:01 PM
 //Codeset: UTF-8
 requires maya "2023";
 requires "mtoa" "5.1.2";
@@ -10,17 +10,17 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202205052215-234554116d";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "3C7F7DA4-C841-6848-6A5C-A2B172D4EC2F";
+fileInfo "UUID" "32820D0B-0F49-C51A-09F3-E588CDA0BCD8";
 createNode transform -s -n "persp";
 	rename -uid "7A81A267-C849-2953-9365-909017951A52";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 13.326713270238676 4.7840300554920709 15.697317010859615 ;
-	setAttr ".r" -type "double3" -5.1383527297619374 1482.1999999999623 -2.6833616933230496e-16 ;
+	setAttr ".t" -type "double3" 8.2695466067755916 4.1919243431809727 11.359082112908679 ;
+	setAttr ".r" -type "double3" -5.1383527297754545 1478.5999999997275 1.0174252606613028e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C28F9A01-8647-CA0B-182A-39A33AC0A6F6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 19.919718299807684;
+	setAttr ".coi" 13.308518585606016;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -2203,19 +2203,19 @@ createNode mesh -n "pCube33Shape" -p "pCube33";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "7BF3B1F8-804E-56FE-1A15-5F8B8B964492";
+	rename -uid "682C3BCA-2C49-E8BC-6A76-2F82ECAC5D40";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "E1E7C676-1244-FAC4-A96F-4E8D07D109B4";
+	rename -uid "BC9389E6-3345-2047-4BF1-5383A3F62DEB";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "C7FFDE13-F447-633D-285B-8596051DDBA8";
+	rename -uid "F2E3EFB3-9840-6323-3BD4-7784A61B4D7F";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "14B1ED66-764F-10F8-D36F-A1BA49C01163";
+	rename -uid "DFE9779D-EC45-447F-7FFE-1DABB14FCB7B";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "C7E91BB8-5349-FA94-C05C-52910C11BA53";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3FB99E22-3043-C678-5D53-1CB15A7CED26";
+	rename -uid "06B3AD95-2A4C-5212-BA1A-3F9ED757A9CA";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "D5F4B7BB-734C-13B0-312D-A9A5561682B4";
 	setAttr ".g" yes;
@@ -2308,8 +2308,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "groupId1.id" "pCube33Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube33Shape.iog.og[0].gco";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
